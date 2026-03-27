@@ -1,0 +1,756 @@
+/* ============================================================
+   LabAccess · Sistema de Controle de Acesso · Tema Institucional
+   labaccess.css — Estilos com identidade visual da logo
+   ============================================================ */
+
+/* ── TEMA INSTITUCIONAL: Azul Tecnológico + Amarelo Elétrico ── */
+:root {
+    /* Cores primárias alinhadas à logo */
+    --color-accent:        #1e90ff;   /* Azul principal da chave/circuito */
+    --color-accent-2:      #ffd700;   /* Amarelo elétrico do raio */
+    --color-accent-rgb:    30, 144, 255;
+
+    /* Backgrounds */
+    --color-bg:            #0a0c15;
+    --color-surface:       rgba(17, 24, 39, 0.85);
+    --color-surface-solid: #1e293b;
+    --color-surface-hover: rgba(0, 0, 0, 0.3);
+    --color-input-bg:      rgba(0, 0, 0, 0.4);
+
+    /* Bordas */
+    --color-border:        rgba(255, 255, 255, 0.08);
+    --color-border-accent: rgba(30, 144, 255, 0.25);
+
+    /* Texto */
+    --color-text:          #ffffff;
+    --color-text-muted:    #94a3b8;
+    --color-text-subtle:   #64748b;
+
+    /* Badge / Tags */
+    --color-badge-bg:      rgba(255, 215, 0, 0.2);
+    --color-badge-border:  rgba(255, 215, 0, 0.3);
+    --color-badge-text:    #ffd700;
+
+    /* Gradientes */
+    --gradient-accent:     linear-gradient(135deg, #1e90ff, #ffd700);
+    --gradient-success:    linear-gradient(135deg, #10b981, #059669);
+    --gradient-card:       linear-gradient(135deg, #1e293b, #0f172a);
+
+    /* Botão de sucesso */
+    --color-success:       #10b981;
+
+    /* Toggle desligado */
+    --color-toggle-off:    #334155;
+
+    /* Tipografia */
+    --font-body:           'Inter', sans-serif;
+    --font-mono:           'JetBrains Mono', monospace;
+
+    /* Raios de borda */
+    --radius-sm:   12px;
+    --radius-md:   16px;
+    --radius-lg:   24px;
+    --radius-full: 9999px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-bg);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    color: var(--color-text);
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header-premium {
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border-accent);
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(30, 144, 255, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-text {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    color: var(--color-text);
+}
+.logo-text span {
+    color: var(--color-accent);
+}
+.logo-sub {
+    font-size: 0.7rem;
+    color: var(--color-text-subtle);
+    margin-left: 8px;
+}
+.free-badge {
+    background: var(--color-badge-bg);
+    border: 1px solid var(--color-badge-border);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    color: var(--color-badge-text);
+}
+
+/* ============================================================
+   CONTAINER DE ABAS
+   ============================================================ */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.tabs-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: var(--color-accent);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.tab-icon {
+    font-size: 1.1rem;
+}
+
+.tabs-content {
+    min-height: 600px;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card-premium {
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+.card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.card-header-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(var(--color-accent-rgb), 0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.card-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+.card-header p {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+.card-body {
+    padding: 24px;
+}
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+.form-group {
+    margin-bottom: 16px;
+}
+label {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+}
+textarea {
+    resize: vertical;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.15);
+}
+select option {
+    background: var(--color-surface-solid);
+    color: var(--color-text);
+}
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ============================================================
+   CAMPO COM TOGGLE
+   ============================================================ */
+.field-with-toggle {
+    margin-bottom: 16px;
+    background: var(--color-surface-hover);
+    border-radius: 14px;
+    padding: 10px 12px;
+}
+.field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.field-header label {
+    margin-bottom: 0;
+    font-size: 0.65rem;
+}
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    flex-shrink: 0;
+}
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--color-toggle-off);
+    transition: 0.2s;
+    border-radius: var(--radius-full);
+}
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+input:checked + .toggle-slider {
+    background: var(--gradient-accent);
+}
+input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+/* ============================================================
+   PLANOS
+   ============================================================ */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.plan-card {
+    background: var(--color-surface-hover);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.plan-card:hover {
+    border-color: rgba(var(--color-accent-rgb), 0.5);
+    transform: translateY(-2px);
+}
+.plan-card.selected {
+    border-color: var(--color-accent);
+    background: linear-gradient(135deg,
+        rgba(var(--color-accent-rgb), 0.15),
+        rgba(255, 215, 0, 0.15));
+}
+.plan-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+.plan-qty {
+    font-size: 0.6rem;
+    color: var(--color-text-muted);
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--gradient-accent);
+    border: none;
+    border-radius: var(--radius-md);
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    font-family: var(--font-body);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+}
+.btn-primary:active {
+    transform: scale(0.98);
+}
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+.btn-success {
+    background: var(--gradient-success);
+}
+.btn-neutral {
+    background: #334155;
+}
+
+/* ============================================================
+   SELETOR DE CORES
+   ============================================================ */
+.color-picker {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.15s, transform 0.15s;
+}
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+.color-swatch.active {
+    border-color: white;
+    transform: scale(1.1);
+}
+
+/* ============================================================
+   CRACHÁ / BADGE PREVIEW
+   ============================================================ */
+.crachá {
+    background: var(--gradient-card);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+.crachá::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent, var(--color-accent));
+}
+.crachá-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.crachá-logo {
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.crachá-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.6rem;
+    color: var(--color-accent);
+}
+.crachá-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent);
+}
+.crachá-info {
+    text-align: center;
+    margin-bottom: 16px;
+}
+.crachá-nome {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+}
+.crachá-funcao {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+}
+.crachá-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
+}
+.detail-item {
+    text-align: center;
+}
+.detail-label {
+    font-size: 0.5rem;
+    color: var(--color-text-muted);
+}
+.detail-value {
+    font-size: 0.65rem;
+    color: white;
+    font-weight: 600;
+    word-break: break-word;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+.social-link {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.6rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-accent);
+}
+.crachá-qr {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+    min-height: 120px;
+}
+.qr-placeholder {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.6rem;
+    flex-direction: column;
+    gap: 4px;
+}
+.qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.crachá-footer {
+    text-align: center;
+    font-size: 0.55rem;
+    color: var(--color-text-subtle);
+    margin-top: 8px;
+}
+.free-watermark {
+    text-align: center;
+    font-size: 0.6rem;
+    color: var(--color-badge-text);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-badge-border);
+}
+
+/* ============================================================
+   RESUMO DE PEDIDO
+   ============================================================ */
+.order-summary {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    padding: 12px;
+    background: var(--color-surface-hover);
+    border-radius: var(--radius-sm);
+}
+.order-summary-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+}
+.order-summary-total {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-accent);
+}
+.order-summary-info {
+    font-size: 0.65rem;
+    color: var(--color-text-subtle);
+}
+
+/* ============================================================
+   MODAL DE PAGAMENTO
+   ============================================================ */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(16px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal.open {
+    display: flex;
+}
+.modal-content {
+    background: var(--color-surface-solid);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid var(--color-border-accent);
+}
+.modal-title {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.modal-total {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    margin: 12px 0;
+}
+.modal-pix-key {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin: 12px 0;
+}
+.modal-warning {
+    font-size: 0.6rem;
+    color: var(--color-badge-text);
+    margin-bottom: 16px;
+}
+.modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* ============================================================
+   TOAST NOTIFICATIONS
+   ============================================================ */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    z-index: 1100;
+    animation: slideIn 0.3s ease;
+    font-family: var(--font-body);
+}
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0);    opacity: 1; }
+}
+
+/* ============================================================
+   COMO FUNCIONA — STEPS
+   ============================================================ */
+.step-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.step-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(var(--color-accent-rgb), 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.step-text strong {
+    color: var(--color-text);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 4px;
+}
+.step-text span {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: block;
+    line-height: 1.4;
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 900px) {
+    .main-container {
+        padding: 16px;
+    }
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    .tab-btn span:last-child {
+        display: none;
+    }
+    .tab-btn .tab-icon {
+        margin: 0;
+    }
+}
+@media (max-width: 480px) {
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .card-body {
+        padding: 16px;
+    }
+      }

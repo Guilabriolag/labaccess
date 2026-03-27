@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LabAccess · Sistema de Controle de Acesso · Versão Gratuita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="labaccess.css">
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="header-premium">
+    <div class="header-content">
+        <div class="logo-area">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">Lab<span>Access</span></div>
+            <div class="logo-sub">Free Trial</div>
+        </div>
+        <div class="free-badge">🎫 VERSÃO GRATUITA · SEM LASTRO</div>
+    </div>
+</header>
+
+<!-- ═══════════════════════ GRID PRINCIPAL ═══════════════════════ -->
+<div class="main-container">
+
+    <!-- ─── PAINEL ESQUERDO: Formulário ─── -->
+    <div class="card-premium">
+        <div class="card-header">
+            <div class="card-header-icon">📝</div>
+            <div>
+                <h2>Perfil Completo</h2>
+                <p>Preencha os dados — selecione o que vai no crachá</p>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <!-- Nome -->
+            <div class="field-with-toggle">
+                <div class="field-header">
+                    <label>👤 Nome Completo</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="show_nome" checked onchange="updatePreview()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <input type="text" id="nome" placeholder="Nome completo" value="Carlos Eduardo Silva" oninput="updatePreview()">
+            </div>
+
+            <div class="row-2">
+                <!-- Empresa -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>🏢 Empresa</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_empresa" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="text" id="empresa" placeholder="Empresa" value="Labriolag Holding" oninput="updatePreview()">
+                </div>
+                <!-- Cargo -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>💼 Cargo/Função</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_cargo" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="text" id="cargo" placeholder="Cargo" value="Coordenador de Operações" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="row-2">
+                <!-- Matrícula -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>🆔 Matrícula/ID</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_matricula" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="text" id="matricula" placeholder="Matrícula" value="LAB-2024-001" oninput="updatePreview()">
+                </div>
+                <!-- Departamento -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📋 Departamento</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_departamento" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="text" id="departamento" placeholder="Departamento" value="Tecnologia &amp; Inovação" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="row-2">
+                <!-- Perfil de acesso -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>👔 Perfil de Acesso</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_perfil" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <select id="perfil" onchange="updatePreview()">
+                        <option>Administrador</option>
+                        <option>Gerente</option>
+                        <option selected>Operador</option>
+                        <option>Visitante</option>
+                        <option>Consultor</option>
+                    </select>
+                </div>
+                <!-- Validade -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📅 Validade</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_validade" checked onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="date" id="validade" onchange="updatePreview()">
+                </div>
+            </div>
+
+            <!-- Links e Contatos -->
+            <div style="margin: 12px 0 4px 0;">
+                <label>🔗 LINKS E CONTATOS</label>
+            </div>
+
+            <div class="row-2">
+                <!-- Foto -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📸 Foto (URL)</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_foto" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="url" id="foto_url" placeholder="https://exemplo.com/foto.jpg" oninput="updatePreview()">
+                </div>
+                <!-- Site -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>🌐 Site/Link</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_site" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="url" id="site" placeholder="https://seusite.com" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="row-2">
+                <!-- LinkedIn -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>💼 LinkedIn</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_linkedin" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/..." oninput="updatePreview()">
+                </div>
+                <!-- Instagram -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📷 Instagram</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_instagram" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="text" id="instagram" placeholder="@username" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="row-2">
+                <!-- WhatsApp -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📱 WhatsApp</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_whatsapp" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" oninput="updatePreview()">
+                </div>
+                <!-- Email -->
+                <div class="field-with-toggle">
+                    <div class="field-header">
+                        <label>📧 Email</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="show_email" onchange="updatePreview()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <input type="email" id="email" placeholder="contato@email.com" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <!-- Observações -->
+            <div class="field-with-toggle">
+                <div class="field-header">
+                    <label>🔒 Observações Internas</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="show_obs" onchange="updatePreview()">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <textarea id="observacoes" rows="2" placeholder="Informações internas (vai no QR)" oninput="updatePreview()"></textarea>
+            </div>
+
+            <!-- Cor de destaque -->
+            <label>🎨 Cor do Destaque</label>
+            <div class="color-picker">
+                <div class="color-swatch" style="background:#f59e0b" data-color="#f59e0b" onclick="setColor('#f59e0b')" title="Âmbar"></div>
+                <div class="color-swatch active" style="background:#3b82f6" data-color="#3b82f6" onclick="setColor('#3b82f6')" title="Azul"></div>
+                <div class="color-swatch" style="background:#ef4444" data-color="#ef4444" onclick="setColor('#ef4444')" title="Vermelho"></div>
+                <div class="color-swatch" style="background:#10b981" data-color="#10b981" onclick="setColor('#10b981')" title="Verde"></div>
+                <div class="color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" onclick="setColor('#8b5cf6')" title="Roxo"></div>
+            </div>
+
+            <!-- Planos -->
+            <label>💰 Planos de Acesso (Simulação)</label>
+            <div class="plans-grid" id="plansGrid">
+                <div class="plan-card" data-qty="20" data-price="29">
+                    <div class="plan-price">R$ 29</div>
+                    <div class="plan-qty">20 acessos</div>
+                </div>
+                <div class="plan-card selected" data-qty="60" data-price="79">
+                    <div class="plan-price">R$ 79</div>
+                    <div class="plan-qty">60 acessos</div>
+                </div>
+                <div class="plan-card" data-qty="100" data-price="129">
+                    <div class="plan-price">R$ 129</div>
+                    <div class="plan-qty">100 acessos</div>
+                </div>
+                <div class="plan-card" data-qty="200" data-price="199">
+                    <div class="plan-price">R$ 199</div>
+                    <div class="plan-qty">200 acessos</div>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="generateBtn" onclick="generateBadge()">⚡ GERAR QR CODE DE ACESSO</button>
+        </div>
+    </div><!-- /card-premium esquerdo -->
+
+
+    <!-- ─── PAINEL DIREITO: Preview ─── -->
+    <div>
+        <!-- Preview do crachá -->
+        <div class="card-premium">
+            <div class="card-header">
+                <div class="card-header-icon">🪪</div>
+                <div>
+                    <h2>Preview do Crachá</h2>
+                    <p>Visualize como ficará o acesso</p>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <!-- Crachá -->
+                <div id="crachá" class="crachá" style="--accent: #3b82f6">
+                    <div class="crachá-header">
+                        <div class="crachá-logo" id="previewEmpresa">Labriolag Holding</div>
+                        <div class="crachá-badge">QR Access</div>
+                    </div>
+                    <div class="crachá-info">
+                        <div class="crachá-nome" id="previewNome">Carlos Eduardo Silva</div>
+                        <div class="crachá-funcao" id="previewCargo">Coordenador de Operações</div>
+                    </div>
+                    <div id="detailsContainer" class="crachá-details"></div>
+                    <div id="socialContainer" class="social-links"></div>
+                    <div class="crachá-qr">
+                        <div id="qrPlaceholder" class="qr-placeholder">
+                            <span>⚡ QR Code</span>
+                            <span style="font-size:0.45rem;">Clique em "GERAR QR"</span>
+                        </div>
+                        <canvas id="qrCanvas" style="display:none; width:100px; height:100px;"></canvas>
+                    </div>
+                    <div class="crachá-footer">
+                        <span>Válido até: <span id="previewValidade">--/--/----</span></span>
+                    </div>
+                    <div class="free-watermark">
+                        ⚡ VERSÃO GRATUITA · SEM LASTRO · APENAS PARA DEMONSTRAÇÃO
+                    </div>
+                </div><!-- /crachá -->
+
+                <!-- Resumo do pedido -->
+                <div class="order-summary">
+                    <div class="order-summary-label">Total do pedido (simulação)</div>
+                    <div class="order-summary-total" id="totalValue">R$ 79,00</div>
+                    <div class="order-summary-info" id="qtyInfo">60 acessos · R$ 1,32 por acesso</div>
+                </div>
+
+                <button class="btn-primary btn-success" id="paymentBtn" onclick="handlePayment()" disabled>
+                    💳 SIMULAR PAGAMENTO
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Como funciona -->
+        <div class="card-premium">
+            <div class="card-header">
+                <div class="card-header-icon">💡</div>
+                <div>
+                    <h2>Como funciona?</h2>
+                    <p>Versão gratuita com simulação</p>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="step-item">
+                    <div class="step-icon">1️⃣</div>
+                    <div class="step-text">
+                        <strong>Preencha os dados</strong>
+                        <span>Use os toggles para escolher o que aparece</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">2️⃣</div>
+                    <div class="step-text">
+                        <strong>Gere o QR Code</strong>
+                        <span>Clique em "GERAR QR" para criar o código</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">3️⃣</div>
+                    <div class="step-text">
+                        <strong>Simule o pagamento</strong>
+                        <span>Modal com PIX simulado e download do crachá</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /painel direito -->
+</div><!-- /main-container -->
+
+
+<!-- ═══════════════════════ MODAL DE PAGAMENTO ═══════════════════════ -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <h3 class="modal-title">⚡ SIMULAÇÃO DE PAGAMENTO</h3>
+        <div class="modal-total" id="modalTotal">R$ 79,00</div>
+        <div id="modalQr" style="background:white; padding:12px; border-radius:16px; display:inline-block; margin:16px 0;"></div>
+        <div class="modal-pix-key">Chave PIX: contato@labriolag.com.br</div>
+        <div class="modal-warning">⚠️ VERSÃO GRATUITA · SIMULAÇÃO SEM LASTRO</div>
+        <div class="modal-actions">
+            <button class="btn-primary" style="flex:1;" onclick="simulatePayment()">✅ SIMULAR PAGAMENTO</button>
+            <button class="btn-primary btn-neutral" style="flex:1;" onclick="closeModal()">FECHAR</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="labaccess.js"></script>
+
+</body>
+</html>
